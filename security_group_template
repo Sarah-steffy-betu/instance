@@ -1,0 +1,16 @@
+resource "aws_security_group" "<##SG_NAME##>" {
+        name = "<##SG_NAME##>"
+        description = "<##SG_NAME##>"
+        vpc_id = "${aws_vpc.AROBINE-vpc.id}"
+
+	<##INGRESS_RULES##>
+
+        egress {
+                description = "Allow out Traffic"
+                from_port = 0
+                to_port = 0
+                protocol = "-1"
+                cidr_blocks = ["0.0.0.0/0"]
+                ipv6_cidr_blocks = []
+        }
+}
