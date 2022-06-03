@@ -1,8 +1,8 @@
 resource "aws_security_group" "<##SG_NAME##>" {
         name = "<##SG_NAME##>"
         description = "<##SG_NAME##>"
-       #vpc_id = "${aws_vpc.Gr10_vpc.id}"
-	vpc_id = "vpc-08731e153b734838b"
+       vpc_id = "${aws_vpc.Gr10_vpc.id}"
+	#vpc_id = "vpc-08731e153b734838b"
 
 	<##INGRESS_RULES##>
 
