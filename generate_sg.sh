@@ -51,24 +51,24 @@ do
 	fi
 done < flow_matrix
 
-for SGROUP in $(ls *.ingress)
-do
+# for SGROUP in $(ls *.ingress)
+# do
 	
-	GROUP_NAME=$(echo $SGROUP | cut -d"." -f1)
-	#GROUP_NAME=$(echo $SG_NAME| cut -d"." -f1)
+# 	GROUP_NAME=$(echo $SGROUP | cut -d"." -f1)
+# 	#GROUP_NAME=$(echo $SG_NAME| cut -d"." -f1)
 	
-	#mkdir GENERATED
+# 	#mkdir GENERATED
 	
-	GEN_FILE="GENERATED/${GROUP_NAME}.tf"
-	cp security_group_template $GEN_FILE
+# 	GEN_FILE="GENERATED/${GROUP_NAME}.tf"
+# 	cp security_group_template $GEN_FILE
 
-	sed -i "s|<##SG_NAME##>|${GROUP_NAME}|g" $GEN_FILE
+# 	sed -i "s|<##SG_NAME##>|${GROUP_NAME}|g" $GEN_FILE
 
-	LTOWRITE=$(cat -n ${GEN_FILE} | grep "<##INGRESS_RULES##>" | sed 's|\t| |g' | tr -s " " | cut -d" " -f2)
+# 	LTOWRITE=$(cat -n ${GEN_FILE} | grep "<##INGRESS_RULES##>" | sed 's|\t| |g' | tr -s " " | cut -d" " -f2)
 
-	sed -i "${LTOWRITE} r ${SGROUP}" $GEN_FILE
-	sed -i "s|<##INGRESS_RULES##>||g" $GEN_FILE
+# 	sed -i "${LTOWRITE} r ${SGROUP}" $GEN_FILE
+# 	sed -i "s|<##INGRESS_RULES##>||g" $GEN_FILE
 
-	rm $SGROUP
-done
+# 	rm $SGROUP
+# done
 
