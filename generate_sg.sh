@@ -71,3 +71,4 @@ do
 
 	rm $SGROUP
 done
+git clone <##GIT_URL##>
