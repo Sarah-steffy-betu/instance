@@ -57,7 +57,7 @@ do
 	GROUP_NAME=$(echo $SGROUP | cut -d"." -f1)
 	#GROUP_NAME=$(echo $SG_NAME| cut -d"." -f1)
 	
-	mkdir GENERATED
+	#mkdir GENERATED
 	
 	GEN_FILE="GENERATED/${GROUP_NAME}.tf"
 	cp security_group_template $GEN_FILE
